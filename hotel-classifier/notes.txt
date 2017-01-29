@@ -1,0 +1,16 @@
+NOTES:
+
+
+> python nblearn.py /path/to/text/file /path/to/label/file 
+
+> python nbclassify.py /path/to/text/file 
+
+
+
+Tokenise
+ a) lower case
+ b) remove numbers
+ c) remove punctutation
+
+
+Log probabilities 
