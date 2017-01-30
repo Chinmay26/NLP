@@ -35,7 +35,7 @@ def filter(token):
 	'''
 	pattern = r'[^a-zA-Z]'
 	result = re.sub(pattern, '', token)
-	return result
+	return result.lower()
 
 def filter_tokens(tag_token):
 	''' Remove stop words'''

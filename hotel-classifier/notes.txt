@@ -14,3 +14,32 @@ Tokenise
 
 
 Log probabilities 
+
+
+Precision Recall F1
+Deceptive 0.84 0.89 0.86
+Truthful 0.89 0.82 0.85
+Negative 0.92 0.91 0.92
+Positive 0.91 0.93 0.92
+Weighted Avg. 0.89
+
+
+
+Precision Recall F1
+Deceptive 0.83 0.88 0.85
+Truthful 0.87 0.82 0.85
+Negative 0.94 0.92 0.93
+Positive 0.92 0.94 0.93
+Weighted Avg. 0.89
+
+
+Mismatched deceptive
+['wsbNToyceIhzCBgZsUcO', 'VyRJjBkMXSH7iZ17ApSa', 'XDIBcY2AUJaru1gj4SCJ', 'pDcE8BCSf3PyHtVdp1cI', '12SK4t7FTrEw77WGJSR4', 'DdgbT64N91j6n5Y5vYRB', 'EkjLZSVN8rRsJ5Ji4hy7', '62D8Kykg7SSOyyaKavnP', 'V4cKO7oMaErDp6RECrff', 'yMUjbuZABOaWNO3jKl8j', 'w64HXo2IPMD0PxBs4kmN', '3JD3ubiPx0O0jtXTspac', '6VlByLPFzqmYzjPJ11Zo', 'WBuGt0RxAuwwdorngDIy', 'EqC5zzI5kc2LLZLfELwJ', 'mBus9a1Rfcs2u2XEG3HL', '4trv1F5NINVX4EUrPPcx', 'SciWQ4LMHLnpTtnPVFK5', 'mRVo0GwCy4t2Rfrczc3n', 'Adr3wQY5qnYCfKUTqUbi', 'cw5HcMud996ZWuB3ASW3', 'XS6TbBmKSmUGpJWLdvPo', 'NXngeZjSVY9GrI6fjsSS', 'KPixlyiwRuONlktDFMQl']
+
+['VyRJjBkMXSH7iZ17ApSa', 'XS6TbBmKSmUGpJWLdvPo', '3JD3ubiPx0O0jtXTspac', 'yMUjbuZABOaWNO3jKl8j', 'pDcE8BCSf3PyHtVdp1cI', 'cw5HcMud996ZWuB3ASW3', 'WBuGt0RxAuwwdorngDIy', '62D8Kykg7SSOyyaKavnP', 'w64HXo2IPMD0PxBs4kmN', 'NXngeZjSVY9GrI6fjsSS', 'DdgbT64N91j6n5Y5vYRB', 'SciWQ4LMHLnpTtnPVFK5', 'wsbNToyceIhzCBgZsUcO', 'EqC5zzI5kc2LLZLfELwJ', '4trv1F5NINVX4EUrPPcx', 'EkjLZSVN8rRsJ5Ji4hy7', 'mRVo0GwCy4t2Rfrczc3n']
+['mBus9a1Rfcs2u2XEG3HL', '6VlByLPFzqmYzjPJ11Zo', 'KPixlyiwRuONlktDFMQl', 'V4cKO7oMaErDp6RECrff', 'Adr3wQY5qnYCfKUTqUbi', 'XDIBcY2AUJaru1gj4SCJ', '12SK4t7FTrEw77WGJSR4']
+
+
+['cw5HcMud996ZWuB3ASW3', 'w64HXo2IPMD0PxBs4kmN', 'yMUjbuZABOaWNO3jKl8j', '62D8Kykg7SSOyyaKavnP', 'pDcE8BCSf3PyHtVdp1cI', 'SciWQ4LMHLnpTtnPVFK5', '3JD3ubiPx0O0jtXTspac', '4trv1F5NINVX4EUrPPcx', 'DdgbT64N91j6n5Y5vYRB', 'WBuGt0RxAuwwdorngDIy', 'EkjLZSVN8rRsJ5Ji4hy7', 'mRVo0GwCy4t2Rfrczc3n', 'VyRJjBkMXSH7iZ17ApSa', 'wsbNToyceIhzCBgZsUcO', 'XS6TbBmKSmUGpJWLdvPo', 'NXngeZjSVY9GrI6fjsSS']
+['3yaydYPaHVFEEmWJkwL7', 'V4cKO7oMaErDp6RECrff', 'KPixlyiwRuONlktDFMQl', 'XDIBcY2AUJaru1gj4SCJ', 'Adr3wQY5qnYCfKUTqUbi', '6VlByLPFzqmYzjPJ11Zo', 'mBus9a1Rfcs2u2XEG3HL']
+
