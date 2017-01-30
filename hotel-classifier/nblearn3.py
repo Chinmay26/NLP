@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import sys, re, json
+import sys, re, json, math
 '''
 Build a Bayesian Classifer model and write model parameters to nbmodel.txt
 Each word is a feature. Calculate probabilities for the word based on train-text.txt
@@ -40,9 +40,15 @@ def filter(token):
 def filter_tokens(tag_token):
 	''' Remove stop words'''
 	filtered_tag_token = {}
-	#for tag, tokens in tag_token.items():
-	#	for 
-	return tag_token
+	stop_words = set(STOP_WORDS)
+	for tag, tokens in tag_token.items():
+		result = []
+		for t in tokens:
+			tk = filter(t)
+			if len(tk) > 0 and tk not in stop_words:
+				result.append(tk)
+		filtered_tag_token[tag] = result
+	return filtered_tag_token
 
 def parse_text_file(text_file):
 	tag_token = {}
@@ -145,17 +151,17 @@ def create_model(tag_token, tag_truth_label, tag_positive_label):
 
 	feature_params = {}
 	for t,v in token_dict.items():
-		pos_prob = float(v['positive_count'] + 1) / (positive_token_count + vocabulary_count)
-		neg_prob = float(v['negative_count'] + 1) / (negative_token_count + vocabulary_count)
-		truth_prob = float(v['truth_count'] + 1) / (truth_token_count + vocabulary_count)
-		decep_prob = float(v['deceptive_count'] + 1) / (deceptive_token_count + vocabulary_count)
+		pos_prob = math.log(float(v['positive_count'] + 1) / (positive_token_count + vocabulary_count))
+		neg_prob = math.log(float(v['negative_count'] + 1) / (negative_token_count + vocabulary_count))
+		truth_prob = math.log(float(v['truth_count'] + 1) / (truth_token_count + vocabulary_count))
+		decep_prob = math.log(float(v['deceptive_count'] + 1) / (deceptive_token_count + vocabulary_count))
 		feature_params[t] = {'positive_probability': pos_prob, 'negative_probability': neg_prob, 'truth_probability': truth_prob,
 							 'deceptive_probability': decep_prob}
 
 	model_data = {'class_probability': {'positive_prior': positive_prior, 'negative_prior': negative_prior, 'truth_prior': truth_prior, 
 										'deceptive_prior': deceptive_prior}, 'feature_probability': feature_params}
 
-	print(model_data)
+	#print(model_data)
 	write_model(model_data)
 
 def construct_model(text_file, label_file):
@@ -163,8 +169,6 @@ def construct_model(text_file, label_file):
 	filtered_tag_token = filter_tokens(tag_token)
 	tag_truth_label, tag_positive_label = parse_label_file(label_file)
 	create_model(filtered_tag_token, tag_truth_label, tag_positive_label)
-
-
 
 if __name__ == '__main__':
 	assert (len(sys.argv) == 3),'Expects one text file and one training file'

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import sys, re, json
 '''
-Reads model parameters and classifys hotel reviews from test data into nboutput.txt
+Reads model parameters and classify hotel reviews from test data into nboutput.txt
 '''
 
 def read_model_params():
@@ -31,11 +31,11 @@ def parse_text_file(text_file):
 
 def write_output(result):
 	with open('nboutput.txt', 'w') as output_file:
-		for tag, res in result:
+		for tag, res in result.items():
 			data = tag + ' ' + res[0] + ' ' + res[1] + '\n'
 			output_file.write(data)
 
-def classify_test(test_file):
+def classify_test(text_file):
 	tag_token = parse_text_file(text_file)
 	model_data = read_model_params()
 	positive_prior = model_data['class_probability']['positive_prior']
@@ -72,6 +72,6 @@ def classify_test(test_file):
 
 
 if __name__ == '__main__':
-	asssert (len(sys.argv[1]) == 2), 'Expects one test data file as argument'
+	assert (len(sys.argv) == 2), 'Expects one test data file as argument'
 	test_data_file = sys.argv[1]
 	classify_test(test_data_file)
