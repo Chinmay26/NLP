@@ -1,0 +1,42 @@
+The Viterbi algorithm. A Hidden Markov Model (HMM) is a Markov chain where we cannot
+observe the states directly, but we can observe the emissions. The Viterbi algorithm is used for
+decoding the sequence of states, that is finding the most likely sequence of states that could give
+rise to a sequence of observations. Given a set of states Q and a sequence of time points 1 . . . T , the
+algorithm builds two matrices of size Q × (1 . . . T ): a probability matrix representing the probability
+of each state at each time point, and a backpointer matrix which points from each state at each time
+point to the most likely previous state. At the final time point T , the algorithm selects the state
+with the highest probability, and returns the path of backpointers from that state, representing the
+most likely sequence of states to give rise to the observations. The following is pseudocode for the
+algorithm: the notation a(q 0 , q) represents the transition probability between states q 0 and q, and
+b(q, o t ) represents the emission probability by state q of the observation noted at time t.
+
+
+# Initialization step at t = 1
+for q in Q :
+	probability(q, 1) = a(q 0 , q) ∗ b(q, o 1 )
+	backpointer(q, 1) = q 0
+# Recursion step for the remaining time points
+for t from 2 to T :
+	for q in Q :
+		probability(q,t) = max q 0 ∈Q probability(q 0 ,t − 1) ∗ a(q 0 , q) ∗ b(q, o t )
+		backpointer(q,t) = arg max q 0 ∈Q probability(q 0 ,t − 1) ∗ a(q 0 , q)
+# Termination step
+most probable state(T ) = arg max q 0 ∈Q probability(q 0 , T )
+return the backtrace path by following the backpointers from the most probable state
+
+Correct:
+N-141a/ZZ ;/FF N-141b/ZZ ;/FF N-141d/ZZ Accés_Est/NP a/SP Vic/NP ;/FF N-141g/ZZ ;/FF N-IIz/NP ;/FF Girona/NP ./FF
+
+Res:
+N-141a/ZZ ;/FF N-141b/WW ;/FF N-141d/FF Accés_Est/NP a/SP Vic/NP ;/FF N-141g/WW ;/FF N-IIz/WW ;/FF Girona/NP ./FF 
+
+
+
+
+
+Correct
+time/NN flies/NN like/VB an/DT arrow/NN
+
+
+time/NN flies/NN like/VB an/DT arrow/NN 
+ 
